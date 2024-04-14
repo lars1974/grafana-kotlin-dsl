@@ -23,7 +23,6 @@ class GrafanaPublisher(val baseUrl: String = "http://localhost:3000", val token:
     }
 
     fun publish(dashBoard: DashBoardWrapper) {
-        println(dashBoard.node.toPrettyString())
         postJson("$baseUrl/api/dashboards/db", dashBoard.node.toPrettyString())
     }
 
