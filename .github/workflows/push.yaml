@@ -16,10 +16,10 @@
 
         - name: Run the Maven verify phase
           working-directory: grafana-kotlin-dsl
-          run: mvn --batch-mode --update-snapshots verify --DskipTests
+          run: mvn --batch-mode --update-snapshots verify -DskipTests
 
         - name: Publish package
           working-directory: grafana-kotlin-dsl
-          run: mvn --batch-mode deploy --DskipTests
+          run: mvn --batch-mode deploy -DskipTests
           env:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
