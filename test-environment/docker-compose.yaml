@@ -1,0 +1,22 @@
+services:
+  grafana:
+    image: grafana/grafana
+    container_name: grafana
+    restart: unless-stopped
+    ports:
+      - '3000:3000'
+    volumes:
+      - ./volumens/grafana/grafana.ini:/etc/grafana/grafana.ini
+
+  prometheus:
+    image: prom/prometheus
+    container_name: prometheus
+    restart: unless-stopped
+
+    ports:
+      - '9090:9090'
+    volumes:
+      - ./volumens/prometheus/prometheus.yaml:/etc/prometheus/prometheus.yml
+      - ./volumens/prometheus/sample-data.txt:/etc/sample-data.txt
+      - ./volumens/prometheus/load-sample-data.sh:/prometheus/load-sample-data.sh
+

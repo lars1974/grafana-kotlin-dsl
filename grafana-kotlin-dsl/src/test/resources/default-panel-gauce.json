@@ -1,0 +1,63 @@
+{
+  "datasource": {
+    "type": "grafana",
+    "uid": "grafana"
+  },
+  "fieldConfig": {
+    "defaults": {
+      "mappings": [],
+      "thresholds": {
+        "mode": "absolute",
+        "steps": [
+          {
+            "color": "green",
+            "value": null
+          },
+          {
+            "color": "red",
+            "value": 80
+          }
+        ]
+      },
+      "color": {
+        "mode": "thresholds"
+      }
+    },
+    "overrides": []
+  },
+  "gridPos": {
+    "h": 12,
+    "w": 12,
+    "x": 0,
+    "y": 0
+  },
+  "id": 1,
+  "options": {
+    "reduceOptions": {
+      "values": false,
+      "calcs": [
+        "lastNotNull"
+      ],
+      "fields": ""
+    },
+    "orientation": "auto",
+    "showThresholdLabels": false,
+    "showThresholdMarkers": true,
+    "sizing": "auto",
+    "minVizWidth": 75,
+    "minVizHeight": 75
+  },
+  "targets": [
+    {
+      "datasource": {
+        "type": "datasource",
+        "uid": "grafana"
+      },
+      "queryType": "randomWalk",
+      "refId": "A"
+    }
+  ],
+  "title": "Hej",
+  "type": "gauge",
+  "pluginVersion": "10.4.0"
+}
