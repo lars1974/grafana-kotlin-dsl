@@ -10,7 +10,9 @@ target/
 *.ipr
 out/
 !**/src/main/**/out/
+!**/src/main/**/target/
 !**/src/test/**/out/
+!**/src/test/**/target/
 
 ### Eclipse ###
 .apt_generated
