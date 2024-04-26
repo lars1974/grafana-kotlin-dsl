@@ -2,19 +2,18 @@ package panel.fieldconfig
 
 import client.GrafanaPublisher
 import dashboard.DashBoardWrapper
-import dashboard.Dashboard
 import dashboard.LayoutManager
 import datasource.DataSource
 import datasource.DataSourceRef
 import org.junit.Test
 
 
-class TemplatingTest {
+class TemplatingTestIT {
 
     @Test
     fun test() {
         val lm = LayoutManager(6, 8)
-        val publisher = GrafanaPublisher(token = TestTokens.getToken())
+        val publisher = GrafanaPublisher()
 
         publisher.publish(DataSource {
             uid("test-prometheus-datasource")

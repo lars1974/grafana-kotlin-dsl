@@ -5,9 +5,9 @@ import dashboard.panel.common.Calcs
 import folder.Folder
 import org.junit.jupiter.api.Test
 
-class GaugeTest {
+class GaugeTestIT {
     val lm = LayoutManager(6, 8)
-    val publisher = GrafanaPublisher(token = TestTokens.getToken())
+    val publisher = GrafanaPublisher(token = "admin:test", authType = GrafanaPublisher.AuthType.Basic)
 
     @Test
     fun test() {

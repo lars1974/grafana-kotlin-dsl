@@ -9,10 +9,9 @@ import org.junit.jupiter.api.Test
 
 
 
-class StatTest {
+class StatTestIT {
     val lm = LayoutManager(6, 8)
-    val publisher = GrafanaPublisher(token = TestTokens.getToken())
-
+    val publisher = GrafanaPublisher(token = "admin:test", authType = GrafanaPublisher.AuthType.Basic)
     @Test
     fun test() {
         publisher.publish(Folder {

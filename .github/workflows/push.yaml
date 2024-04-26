@@ -16,7 +16,15 @@
 
         - name: Run the Maven verify phase
           working-directory: grafana-kotlin-dsl
-          run: mvn --batch-mode --update-snapshots verify -DskipTests
+          run: mvn --batch-mode --update-snapshots verify
+
+        - name: Start integrations evnvironment
+          working-directory: test-environment
+          run: ./startup.sh
+
+        - name: Run integration tests
+          working-directory: grafana-kotlin-dsl
+          run: mvn failsafe:integration-test
 
         - name: Publish package
           working-directory: grafana-kotlin-dsl

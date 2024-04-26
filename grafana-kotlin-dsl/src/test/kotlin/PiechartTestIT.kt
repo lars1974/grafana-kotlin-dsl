@@ -7,10 +7,9 @@ import datasource.DataSourceRef
 import folder.Folder
 import org.junit.jupiter.api.Test
 
-class PiechartTest {
+class PiechartTestIT {
     val lm = LayoutManager(6, 8)
-    val publisher = GrafanaPublisher(token = TestTokens.getToken())
-
+    val publisher = GrafanaPublisher(token = "admin:test", authType = GrafanaPublisher.AuthType.Basic)
     @Test
     fun test() {
         publisher.publish(Folder {
