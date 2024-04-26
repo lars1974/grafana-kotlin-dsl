@@ -1,9 +1,11 @@
 package dashboard.panel.target.targets
 
 import dashboard.panel.target.Target
+import datasource.DataSourceRef
 
 class PrometheusTarget(): Target()  {
-    constructor(refId: String): this() {
+    constructor(dataSourceUid: String, refId: String): this() {
+        dataSource(DataSourceRef.Type.Prometheus, dataSourceUid)
         refId(refId)
     }
 

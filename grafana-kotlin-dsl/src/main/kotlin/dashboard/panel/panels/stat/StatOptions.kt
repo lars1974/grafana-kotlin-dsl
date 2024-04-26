@@ -1,12 +1,14 @@
 package dashboard.panel.panels.stat
 
 import AbstractGrafanaObject
+import dashboard.panel.common.options.Text
 import dashboard.panel.common.options.reduceoptions.ReduceOptionsSupport
 
 class StatOptions: AbstractGrafanaObject(), ReduceOptionsSupport {
 
     fun orientation(orientation: Orientation) = field("orientation", orientation.value)
     fun textMode(textMode: TextMode) = field("textMode", textMode.value)
+    fun text(text: Text.() -> Unit) = obj("text", Text().apply(text))
     fun wideLayout(wideLayout: Boolean) = field("wideLayout", wideLayout)
     fun colorMode(colorMode: ColorMode) = field("colorMode", colorMode.value)
     fun graphMode(graphMode: GraphMode) = field("graphMode", graphMode.value)

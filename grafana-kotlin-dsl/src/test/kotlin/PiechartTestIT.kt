@@ -1,5 +1,5 @@
 import client.GrafanaPublisher
-import dashboard.DashBoardWrapper
+import dashboard.DashboardWithContext
 import dashboard.LayoutManager
 import dashboard.panel.panels.piechart.PiechartOptions
 import datasource.DataSource
@@ -9,7 +9,7 @@ import org.junit.jupiter.api.Test
 
 class PiechartTestIT {
     val lm = LayoutManager(6, 8)
-    val publisher = GrafanaPublisher(token = "admin:test", authType = GrafanaPublisher.AuthType.Basic)
+    val publisher = GrafanaPublisher(token = "admin:password", authType = GrafanaPublisher.AuthType.Basic)
     @Test
     fun test() {
         publisher.publish(Folder {
@@ -27,7 +27,7 @@ class PiechartTestIT {
 
 
 
-        publisher.publish(DashBoardWrapper {
+        publisher.publish(DashboardWithContext {
             folderUid("test-folder")
             overwrite(true)
             dashboard {

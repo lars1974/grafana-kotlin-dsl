@@ -2,9 +2,9 @@ package dashboard
 
 import AbstractGrafanaObject
 
-class DashBoardWrapper(): AbstractGrafanaObject() {
-    constructor(dashboardWrapper: DashBoardWrapper.() -> Unit) : this() {
-        this.apply(dashboardWrapper)
+class DashboardWithContext(): AbstractGrafanaObject() {
+    constructor(dashboardRoot: DashboardWithContext.() -> Unit) : this() {
+        this.apply(dashboardRoot)
     }
 
     fun dashboard(dashboard: Dashboard.() -> Unit) = obj("dashboard", Dashboard().apply(dashboard))

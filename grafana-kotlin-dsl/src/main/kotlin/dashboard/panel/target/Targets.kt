@@ -12,6 +12,6 @@ class Targets: AbstractGrafanaArray() {
 
     fun testdataTarget(target: TestdataTarget.() -> Unit) = add(TestdataTarget(refIDs[refIdCounter++]).apply(target))
     fun defaultTarget(target: DefaultTarget.() -> Unit) = add(DefaultTarget(refIDs[refIdCounter++]).apply(target))
-    fun prometheusTarget(target: PrometheusTarget.() -> Unit) = add(PrometheusTarget(refIDs[refIdCounter++]).apply(target))
+    fun prometheusTarget(targetUid: String, target: PrometheusTarget.() -> Unit) = add(PrometheusTarget(targetUid, refIDs[refIdCounter++]).apply(target))
 
 }

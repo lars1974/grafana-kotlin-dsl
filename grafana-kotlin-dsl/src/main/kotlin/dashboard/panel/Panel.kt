@@ -17,6 +17,8 @@ open class Panel() : AbstractGrafanaObject(){
         this.apply(panel)
     }
 
+    fun transparent(transparent: Boolean) = field("transparent", transparent)
+
     fun title(title: String) = field("title", title)
 
     fun type(type: String) = field("type", type)

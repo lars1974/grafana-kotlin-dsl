@@ -1,5 +1,5 @@
 import client.GrafanaPublisher
-import dashboard.DashBoardWrapper
+import dashboard.DashboardWithContext
 import dashboard.LayoutManager
 import dashboard.Timezone
 import dashboard.panel.common.Calcs
@@ -13,7 +13,7 @@ import org.junit.jupiter.api.Test
 
 class TimeSeriesTestIT {
     val lm = LayoutManager(6,8)
-    val publisher = GrafanaPublisher(token = "admin:test", authType = GrafanaPublisher.AuthType.Basic)
+    val publisher = GrafanaPublisher(token = "admin:password", authType = GrafanaPublisher.AuthType.Basic)
 
     @Test
     fun test() {
@@ -30,7 +30,7 @@ class TimeSeriesTestIT {
             this.parentUid("test-folder")
         })
 
-        publisher.publish(DashBoardWrapper {
+        publisher.publish(DashboardWithContext {
             folderUid("timeseries-folder")
             overwrite(true)
             dashboard {

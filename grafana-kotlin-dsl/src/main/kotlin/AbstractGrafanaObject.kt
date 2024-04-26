@@ -22,9 +22,14 @@ open class AbstractGrafanaObject {
         node.put(name, value)
     }
 
-    fun addTemplate(template: AbstractGrafanaObject){
+    fun mixin(template: AbstractGrafanaObject){
         merge(this.node, template.node)
     }
+
+    fun mixin(vararg template: AbstractGrafanaObject){
+        template.forEach { merge(this.node, it.node) }
+    }
+
 
     fun array(name: String, value: AbstractGrafanaArray){
         node.set(name, value.arrayNode) as JsonNode

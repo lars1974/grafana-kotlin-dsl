@@ -1,14 +1,14 @@
 package org.example;
 
 import client.GrafanaPublisher;
-import dashboard.DashBoardWrapper;
+import dashboard.DashboardWithContext;
 import kotlin.Unit;
 
 public class Main {
     public static void main(String[] args) {
-        GrafanaPublisher publisher = new GrafanaPublisher("http://localhost:3000", "admin:test", GrafanaPublisher.AuthType.Basic);
+        GrafanaPublisher publisher = new GrafanaPublisher("http://localhost:3000", "admin:password", GrafanaPublisher.AuthType.Basic);
 
-        publisher.publish(new DashBoardWrapper(wrapper -> {
+        publisher.publish(new DashboardWithContext(wrapper -> {
             wrapper.dashboard("My first Dashboard", dashboard -> {
                 dashboard.panels(panels -> {
                     panels.timeseries("My first Panel", timeseriesPanel -> {

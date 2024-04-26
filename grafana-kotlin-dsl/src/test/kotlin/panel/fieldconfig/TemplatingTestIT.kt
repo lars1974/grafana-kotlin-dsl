@@ -1,7 +1,7 @@
 package panel.fieldconfig
 
 import client.GrafanaPublisher
-import dashboard.DashBoardWrapper
+import dashboard.DashboardWithContext
 import dashboard.LayoutManager
 import datasource.DataSource
 import datasource.DataSourceRef
@@ -25,7 +25,7 @@ class TemplatingTestIT {
             access("proxy")
         })
 
-        publisher.publish(DashBoardWrapper {
+        publisher.publish(DashboardWithContext {
             overwrite(true)
             dashboard {
 
@@ -35,8 +35,7 @@ class TemplatingTestIT {
                         title("Default")
                         position(lm.next())
                         targets {
-                            prometheusTarget {
-                                dataSource(DataSourceRef.Type.Prometheus, "test-prometheus-datasource")
+                            prometheusTarget("test-prometheus-datasource") {
                                 range(true)
                                 prometheusQuery {
 

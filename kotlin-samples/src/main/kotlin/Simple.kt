@@ -1,12 +1,12 @@
 package org.example
 
 import client.GrafanaPublisher
-import dashboard.DashBoardWrapper
+import dashboard.DashboardWithContext
 
 fun main() {
-    val publisher = GrafanaPublisher("http://localhost:3000", "admin:test", GrafanaPublisher.AuthType.Basic)
+    val publisher = GrafanaPublisher("http://localhost:3000", "admin:password", GrafanaPublisher.AuthType.Basic)
 
-    publisher.publish(DashBoardWrapper {
+    publisher.publish(DashboardWithContext {
         dashboard("My First Dashboard") {
             panels {
                 timeseries("My First Panel") {

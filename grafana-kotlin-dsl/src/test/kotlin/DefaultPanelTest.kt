@@ -10,7 +10,7 @@ class DefaultPanelTest {
         val expected = File("src/test/resources/default-panel.json").readText()
 
         val p = Panel {
-            addTemplate(PanelTemplates.createTimeSeriesDefault())
+            mixin(PanelTemplates.createTimeSeriesDefault())
         }
     }
 

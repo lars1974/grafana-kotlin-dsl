@@ -12,6 +12,7 @@ class Panels: AbstractGrafanaArray() {
     fun text(panel: TextPanel.() -> Unit) = add(TextPanel().apply(panel))
     fun gauge(panel: GaugePanel.() -> Unit) = add(GaugePanel().apply(panel))
     fun stat(panel: StatPanel.() -> Unit) = add(StatPanel().apply(panel))
+    fun stat(title: String, panel: StatPanel.() -> Unit) = add(StatPanel().apply(panel).apply {title(title) })
     fun piechart(panel: PiechartPanel.() -> Unit) = add(PiechartPanel().apply(panel))
 
     fun timeseries(panel: TimeseriesPanel.() -> Unit) = add(TimeseriesPanel().apply(panel))

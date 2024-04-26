@@ -1,6 +1,6 @@
 
 import client.GrafanaPublisher
-import dashboard.DashBoardWrapper
+import dashboard.DashboardWithContext
 import dashboard.LayoutManager
 import dashboard.panel.common.Calcs
 import dashboard.panel.panels.stat.StatOptions
@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Test
 
 class StatTestIT {
     val lm = LayoutManager(6, 8)
-    val publisher = GrafanaPublisher(token = "admin:test", authType = GrafanaPublisher.AuthType.Basic)
+    val publisher = GrafanaPublisher(token = "admin:password", authType = GrafanaPublisher.AuthType.Basic)
     @Test
     fun test() {
         publisher.publish(Folder {
@@ -24,7 +24,7 @@ class StatTestIT {
 
 
 
-        publisher.publish(DashBoardWrapper {
+        publisher.publish(DashboardWithContext {
             folderUid("test-folder")
             overwrite(true)
 

@@ -1,5 +1,5 @@
 import client.GrafanaPublisher
-import dashboard.DashBoardWrapper
+import dashboard.DashboardWithContext
 import dashboard.LayoutManager
 import dashboard.panel.common.Calcs
 import dashboard.panel.common.fieldconfig.defaults.thresholds.Thresholds
@@ -11,7 +11,7 @@ import org.junit.jupiter.api.Test
 
 class PrometheusTestIT {
     val lm = LayoutManager(6, 8)
-    val publisher = GrafanaPublisher(token = "admin:test", authType = GrafanaPublisher.AuthType.Basic)
+    val publisher = GrafanaPublisher(token = "admin:password", authType = GrafanaPublisher.AuthType.Basic)
 
     @Test
     fun test() {
@@ -32,7 +32,7 @@ class PrometheusTestIT {
 
 
 
-        publisher.publish(DashBoardWrapper {
+        publisher.publish(DashboardWithContext {
             folderUid("prometheus-test-folder")
             overwrite(true)
             dashboard {
@@ -43,8 +43,8 @@ class PrometheusTestIT {
                         title("Default")
                         position(lm.next())
                         targets {
-                            prometheusTarget {
-                                dataSource(DataSourceRef.Type.Prometheus, "test-prometheus-datasource")
+                            prometheusTarget("test-prometheus-datasource") {
+
                                 range(true)
                                 prometheusQuery {
 
@@ -72,8 +72,7 @@ class PrometheusTestIT {
                             }
                         }
                         targets {
-                            prometheusTarget {
-                                dataSource(DataSourceRef.Type.Prometheus, "test-prometheus-datasource")
+                            prometheusTarget("test-prometheus-datasource") {
                                 range(true)
                                 prometheusQuery {
                                     sumOverTime(metric("http_server_requests_seconds_count", filters(eq("status", "200"), eq("method", "post"))))
@@ -97,8 +96,7 @@ class PrometheusTestIT {
                             }
                         }
                         targets {
-                            prometheusTarget {
-                                dataSource(DataSourceRef.Type.Prometheus, "test-prometheus-datasource")
+                            prometheusTarget("test-prometheus-datasource") {
                                 range(true)
                                 prometheusQuery {
                                     sumOverTime(metric("http_server_requests_seconds_count", filters(eq("status", "400"), eq("method", "post"))))

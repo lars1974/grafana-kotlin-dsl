@@ -1,6 +1,6 @@
 package client
 
-import dashboard.DashBoardWrapper
+import dashboard.DashboardWithContext
 import datasource.DataSource
 import folder.Folder
 import okhttp3.Headers
@@ -22,7 +22,7 @@ class GrafanaPublisher(val baseUrl: String = "http://localhost:3000", val token:
         return builder.build()
     }
 
-    fun publish(dashBoard: DashBoardWrapper) {
+    fun publish(dashBoard: DashboardWithContext) {
         postJson("$baseUrl/api/dashboards/db", dashBoard.node.toPrettyString())
     }
 
