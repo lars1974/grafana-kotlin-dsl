@@ -20,7 +20,7 @@
 
         - name: Start integrations evnvironment
           working-directory: test-environment
-          run: ./startup.sh
+          run: chmod 777 ./startup && ./startup.sh
 
         - name: Run integration tests
           working-directory: grafana-kotlin-dsl
