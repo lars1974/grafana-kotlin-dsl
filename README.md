@@ -4,7 +4,7 @@ Create Grafana Dashboards using Kotlin DSL
 ```kotlin
 val publisher = GrafanaPublisher("http://localhost:3000", "admin:password", GrafanaPublisher.AuthType.Basic)
 
-publisher.publish(DashBoardWrapper {
+publisher.publish(DashboardWithContext {
     dashboard("My First Dashboard") {
         panels {
             timeseries("My First Panel") {
@@ -25,7 +25,7 @@ public void createDashboard(){
     
     var publisher = new GrafanaPublisher("http://localhost:3000", "admin:password", GrafanaPublisher.AuthType.Basic);
 
-    publisher.publish(new DashBoardWrapper(wrapper -> {
+    publisher.publish(new DashboardWithContext(wrapper -> {
         wrapper.dashboard("My first Dashboard", dashboard -> {
             dashboard.panels(panels -> {
                 panels.timeseries("My first Panel", timeseriesPanel -> {
