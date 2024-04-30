@@ -58,6 +58,33 @@ class TemplateTest {
         })
     }
 
+    @Test
+    fun test2() {
+        val s = StatPanel().apply {
+            mixin(standalonePurpleDigit(), fontTemplate(20))
+            transparent(true)
+
+
+            fieldConfig {
+                defaults {
+                    color {
+                        fixedColor("red")
+                    }
+                }
+            }
+
+            targets {
+                prometheusTarget("test-prometheus-datasource") {
+                    prometheusQuery {
+                        sum(sumOverTime(metric("http_server_requests_seconds_count", filters(eq("method", "post")))))
+                    }
+                }
+
+            }
+        }.node.toPrettyString()
+        println(s)
+    }
+
     fun standalonePurpleDigit(): StatPanel {
         return StatPanel().apply {
             fieldConfig {

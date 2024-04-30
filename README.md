@@ -14,6 +14,10 @@ publisher.publish(DashBoardWrapper {
     }
 })
 ```
+And you should see a dashboard like this:
+
+![img.png](doc/images/hello-dashboard.png)
+
 
 If you prefer Java, you can use the following code:
 ```java
@@ -36,8 +40,8 @@ public void createDashboard(){
     }));
 }
 ```
-# Reuse panel snippets
-Lets assume you would like to make several Stat panels that only show a single purple counter. You can do like:
+# Reuse code
+Let's assume you would like to make several Stat panels that only show a single purple counter. You can do like:
 ```kotlin
 ...
 panels {
@@ -45,6 +49,7 @@ panels {
     mixin(standalonePurpleDigit())
     //Other panel configuration
   }
+//Other panels that reuses standalonePurpleDigit
 }
 ...
 ```
@@ -81,4 +86,5 @@ panels {
 }
 ...
 ```
-
+# Run a test instance of grafana
+Go to the test-environment project and run the following the ```startup``` command on either linux or windows. Docker and python are required.
