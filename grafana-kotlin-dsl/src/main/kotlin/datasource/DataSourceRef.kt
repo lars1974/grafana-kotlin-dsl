@@ -15,6 +15,7 @@ class DataSourceRef(): AbstractGrafanaObject() {
     enum class Type(val value: String){
         TestdataDatasource("testdata"),
         Default("datasource"),
-        Prometheus("prometheus")
+        Prometheus("prometheus"),
+        Infinity("yesoreyeram-infinity-datasource")
     }
 }

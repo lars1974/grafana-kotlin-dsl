@@ -15,6 +15,7 @@ class Dashboard(): AbstractGrafanaObject(){
     fun title(title: String) = field("title", title)
     fun tags(tags: List<String>) = arrayOfStrings("tags", tags.toTypedArray())
     fun tags(vararg tags: String) = arrayOfStrings("tags", tags)
+    fun links(links: dashboard.dashboard.Links.() -> Unit) = array("links", dashboard.dashboard.Links().apply(links))
 
     fun timezone(timezone: Timezone) = field("timezone", timezone.value)
 
@@ -24,5 +25,8 @@ class Dashboard(): AbstractGrafanaObject(){
         })
 
     }
+
+
+
 
 }

@@ -6,6 +6,8 @@ interface JacksonSupport {
 
     fun field(name: String, value: Int?)
 
+    fun field(name: String, value: Double?)
+
     fun arrayOfStrings(name: String, values: Array<out String>)
 
     fun array(name: String, value: AbstractGrafanaArray)
