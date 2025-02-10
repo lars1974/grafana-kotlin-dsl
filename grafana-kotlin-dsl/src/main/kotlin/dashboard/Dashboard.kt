@@ -9,6 +9,7 @@ class Dashboard(): AbstractGrafanaObject(){
         this.title(title)
     }
 
+    fun uid(uid: String) = field("uid", uid)
     fun panels(panels: Panels.() -> Unit) = array("panels", Panels().apply(panels))
     fun editable(editable: Boolean) = field("editable", editable)
     fun time(from: String, to: String, time: Time.() -> Unit = {}) = obj("time", Time(from, to).apply(time))

@@ -16,7 +16,8 @@ class Color(): AbstractGrafanaObject() {
         Thresholds("thresholds"),
         PaletteClassic("palette-classic"),
         PaletteClassicByName("palette-classic-by-name"),
-        ContinuousReds("continuous-reds")
+        ContinuousReds("continuous-reds"),
+        ContinuousGreens("continuous-greens")
     }
 }
 

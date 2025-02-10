@@ -1,6 +1,7 @@
 package dashboard.panel
 
 import AbstractGrafanaArray
+import dashboard.panel.panels.bargauge.BargaugePanel
 import dashboard.panel.panels.canvas.CanvasPanel
 import dashboard.panel.panels.dashlist.DashlistPanel
 import dashboard.panel.panels.gauge.GaugePanel
@@ -17,6 +18,8 @@ class Panels: AbstractGrafanaArray() {
     fun stat(panel: StatPanel.() -> Unit) = add(StatPanel().apply(panel))
     fun stat(title: String, panel: StatPanel.() -> Unit) = add(StatPanel().apply(panel).apply {title(title) })
     fun piechart(panel: PiechartPanel.() -> Unit) = add(PiechartPanel().apply(panel))
+
+    fun bargauge(panel: BargaugePanel.() -> Unit) = add(BargaugePanel().apply(panel))
 
     fun timeseries(panel: TimeseriesPanel.() -> Unit) = add(TimeseriesPanel().apply(panel))
     fun timeseries(title: String, panel: TimeseriesPanel.() -> Unit) = add(TimeseriesPanel(title).apply(panel))
