@@ -1,0 +1,35 @@
+{
+  "$schema": "https://raw.githubusercontent.com/jetify-com/devbox/0.13.7/.schema/devbox.schema.json",
+  "packages": [
+    "maven@3.9.9",
+    "jdk@23-ga",
+    "binutils@2.43.1",
+
+    "python@3.14.0a4"
+
+  ],
+  "shell": {
+    "init_hook": [
+      "echo 'Welcome to devbox!' > /dev/null"
+    ],
+    "scripts": {
+      "setup-intellij": [
+        "echo ",
+        "echo type CTRL+ALT+SHIFT+S and add JDK select wsl home dir and add:",
+        "echo $JAVA_HOME",
+        "echo ",
+        "echo open maven settings and add",
+        "mvn --version | grep 'Maven home' | awk -F': ' '{print $2}'"
+      ],
+      "start-test-env": [
+        "cd test-environment",
+        "docker compose down",
+        "python ./python_scripts/prometheus_data_generator.py",
+        "docker compose up -d",
+        "docker compose exec prometheus sh ./load-sample-data.sh",
+        "cd .."
+      ]
+    }
+  }
+}
+  
