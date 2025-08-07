@@ -13,7 +13,8 @@ class DataSource(): AbstractGrafanaObject() {
     fun type(type: DataSourceRef.Type) = field("type", type.value)
     fun url(url: String) = field("url", url)
     fun access(access: String) = field("access", access)
-
+    fun jsonData(jsonData: JsonData.() -> Unit) =  obj("jsonData", JsonData().apply(jsonData))
+    fun secureJsonData(secureJsonData: SecureJsonData.() -> Unit) =  obj("secureJsonData", SecureJsonData().apply(secureJsonData))
 
 
 }

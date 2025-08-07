@@ -32,6 +32,7 @@ class GrafanaPublisher(val baseUrl: String = "http://localhost:3000", val token:
     }
 
     fun publish(dataSource: DataSource) {
+        println(dataSource.node.toPrettyString())
         postPut("$baseUrl/api/datasources", dataSource.node.get("uid").asText(), dataSource.node.toPrettyString())
     }
 
