@@ -8,7 +8,7 @@ import datasource.DataSourceRef
 import org.junit.jupiter.api.Test
 
 
-class TemplateTest {
+class TemplateTestIT {
     @Test
     fun test() {
         val publisher = GrafanaPublisher(token = "admin:password", authType = GrafanaPublisher.AuthType.Basic)
