@@ -10,15 +10,15 @@ open class AbstractGrafanaObject {
         node.put(name, value)
     }
 
-    fun field(name: String, value: Double?) {
-        node.put(name, value)
-    }
-
     fun field(name: String, value: Boolean) {
         node.put(name, value)
     }
 
     fun field(name: String, value: Int?) {
+        node.put(name, value)
+    }
+
+    fun field(name: String, value: Double?) {
         node.put(name, value)
     }
 

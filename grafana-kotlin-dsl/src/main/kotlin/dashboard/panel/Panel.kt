@@ -5,6 +5,7 @@ import datasource.DataSourceRef
 import dashboard.panel.target.Targets
 import dashboard.panel.common.GridPos
 import dashboard.panel.common.Links
+import dashboard.panel.target.Transformations
 
 
 open class Panel() : AbstractGrafanaObject(){
@@ -35,5 +36,7 @@ open class Panel() : AbstractGrafanaObject(){
     fun id(id: Int?) = field("id", id)
 
     fun links(links: Links.() -> Unit) = array("links", Links().apply(links))
+
+    fun transformations(transformations: Transformations.() -> Unit) = array("transformations", Transformations().apply(transformations))
 
 }

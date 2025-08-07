@@ -4,5 +4,5 @@ import AbstractGrafanaObject
 import dashboard.panel.common.fieldconfig.StandardOptionsSupport
 
 class GaugeFieldConfig: AbstractGrafanaObject(), StandardOptionsSupport {
-    fun defaults(defaults: dashboard.panel.panels.gauge.GaugeDefaults.() -> Unit) = obj("defaults", dashboard.panel.panels.gauge.GaugeDefaults().apply(defaults))
+    fun defaults(defaults: GaugeDefaults.() -> Unit) = obj("defaults", GaugeDefaults().apply(defaults))
 }

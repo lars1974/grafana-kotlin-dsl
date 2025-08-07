@@ -9,5 +9,5 @@ class GaugePanel: Panel() {
 
     fun options(gaugeOptions: GaugeOptions.() -> Unit) = obj("options", GaugeOptions().apply(gaugeOptions))
 
-    fun fieldConfig(fieldConfig: dashboard.panel.panels.gauge.GaugeFieldConfig.() -> Unit) = obj("fieldConfig", dashboard.panel.panels.gauge.GaugeFieldConfig().apply(fieldConfig))
+    fun fieldConfig(fieldConfig: GaugeFieldConfig.() -> Unit) = obj("fieldConfig", GaugeFieldConfig().apply(fieldConfig))
 }

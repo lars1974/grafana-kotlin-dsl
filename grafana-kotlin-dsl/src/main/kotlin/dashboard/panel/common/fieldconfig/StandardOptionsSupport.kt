@@ -26,10 +26,11 @@ interface StandardOptionsSupport: JacksonSupport {
     fun decimals(decimals: Int) = field("decimals", decimals)
     fun displayName(displayName: String) = field("displayName", displayName)
     fun noValue(noValue: Int) = field("noValue", noValue)
-    fun min(min: Int) = field("min", min)
-    fun max(max: Int) = field("max", max)
+    fun min(min: Double) = field("min", min)
+    fun max(max: Double) = field("max", max)
 
 
+    fun unit(unit: String) = field("unit", unit)
     fun unit(unit: Unit) = field("unit", unit.value)
 
     enum class Unit(val value: String){
@@ -38,7 +39,9 @@ interface StandardOptionsSupport: JacksonSupport {
         Short("short"),
         Percent("percent"),
         PercentUnit("percentunit"),
-
-        AccG("accG")
+        AccG("accG"),
+        CurrencyDKK("currencyDKK"),
+        CurrencyUSD("currencyDKK"),
+        CurrencyEUR("currencyDKK"),
     }
 }

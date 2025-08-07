@@ -23,6 +23,7 @@ class GrafanaPublisher(val baseUrl: String = "http://localhost:3000", val token:
     }
 
     fun publish(dashBoard: DashboardWithContext) {
+        println(dashBoard.node.toPrettyString())
         postJson("$baseUrl/api/dashboards/db", dashBoard.node.toPrettyString())
     }
 
@@ -31,6 +32,7 @@ class GrafanaPublisher(val baseUrl: String = "http://localhost:3000", val token:
     }
 
     fun publish(dataSource: DataSource) {
+        println(dataSource.node.toPrettyString())
         postPut("$baseUrl/api/datasources", dataSource.node.get("uid").asText(), dataSource.node.toPrettyString())
     }
 
@@ -53,7 +55,8 @@ class GrafanaPublisher(val baseUrl: String = "http://localhost:3000", val token:
             .url(url).headers(createHeaders()).post(json.toRequestBody(JSON)).build()
 
         client.newCall(request).execute().use { response ->
-            if (!response.isSuccessful) println("POST SUCCESS " + response.code)
+            if (!response.isSuccessful) println("POST Failed " + response.code + response.message + response.body?.string())
+            else println("POST Success " + response.code + response.message)
         }
     }
 

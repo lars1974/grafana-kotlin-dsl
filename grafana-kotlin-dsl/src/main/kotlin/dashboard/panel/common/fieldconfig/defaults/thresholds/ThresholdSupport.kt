@@ -34,4 +34,15 @@ interface ThresholdSupport: JacksonSupport {
         }
         obj("thresholds", t)
     }
+
+    fun thresholds(mode: Thresholds.Mode, values: Map<String, Double?>, threshold: Thresholds.() -> Unit = {}){
+        val t = Thresholds()
+        t.mode(mode)
+        t.steps {
+            values.forEach { (color, value) ->
+                add(color, value)
+            }
+        }
+        obj("thresholds", t)
+    }
 }

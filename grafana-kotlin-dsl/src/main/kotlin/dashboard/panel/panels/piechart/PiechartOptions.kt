@@ -2,9 +2,10 @@ package dashboard.panel.panels.piechart
 
 import AbstractGrafanaObject
 import dashboard.panel.common.options.legend.LegendSupport
+import dashboard.panel.common.options.reduceoptions.ReduceOptionsSupport
 import dashboard.panel.common.options.tooltip.TooltipSupport
 
-class PiechartOptions: AbstractGrafanaObject(), TooltipSupport, LegendSupport {
+class PiechartOptions: AbstractGrafanaObject(), TooltipSupport, LegendSupport, ReduceOptionsSupport {
     fun pieType(pieType: PieType) = field("pieType", pieType.value)
 
     fun displayLabels(vararg displayLabels: DisplayLabel) = arrayOfStrings("displayLabels",displayLabels.map { it.value }.toTypedArray())

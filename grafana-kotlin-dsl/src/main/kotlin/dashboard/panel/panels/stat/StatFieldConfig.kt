@@ -5,4 +5,6 @@ import dashboard.panel.common.fieldconfig.StandardOptionsSupport
 
 class StatFieldConfig: AbstractGrafanaObject(), StandardOptionsSupport {
     fun defaults(defaults: StatDefaults.() -> Unit) = obj("defaults", StatDefaults().apply(defaults))
+
+
 }
